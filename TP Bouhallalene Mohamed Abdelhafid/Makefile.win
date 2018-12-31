@@ -1,0 +1,43 @@
+# Project: TP
+# Makefile created by Dev-C++ 5.9.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o triSelection.o triBulles.o triInsertion.o EntreeSortieFichier.o EntreeSortieClavier.o
+LINKOBJ  = main.o triSelection.o triBulles.o triInsertion.o EntreeSortieFichier.o EntreeSortieClavier.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = TP.exe
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+triSelection.o: triSelection.c
+	$(CC) -c triSelection.c -o triSelection.o $(CFLAGS)
+
+triBulles.o: triBulles.c
+	$(CC) -c triBulles.c -o triBulles.o $(CFLAGS)
+
+triInsertion.o: triInsertion.c
+	$(CC) -c triInsertion.c -o triInsertion.o $(CFLAGS)
+
+EntreeSortieFichier.o: EntreeSortieFichier.c
+	$(CC) -c EntreeSortieFichier.c -o EntreeSortieFichier.o $(CFLAGS)
+
+EntreeSortieClavier.o: EntreeSortieClavier.c
+	$(CC) -c EntreeSortieClavier.c -o EntreeSortieClavier.o $(CFLAGS)
